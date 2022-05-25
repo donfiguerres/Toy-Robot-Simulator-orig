@@ -127,16 +127,16 @@ Position Robot::calcNewPositionAfterMove(Position position)
     switch (position.direction)
     {
     case Position::NORTH:
-        newPosition.x++;
-        break;
-    case Position::SOUTH:
-        newPosition.x--;
-        break;
-    case Position::EAST:
         newPosition.y++;
         break;
-    case Position::WEST:
+    case Position::SOUTH:
         newPosition.y--;
+        break;
+    case Position::EAST:
+        newPosition.x++;
+        break;
+    case Position::WEST:
+        newPosition.x--;
         break;
     }
     return newPosition;
