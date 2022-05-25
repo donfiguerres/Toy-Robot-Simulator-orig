@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 #include <Parser.h>
 
@@ -20,7 +21,11 @@ Parser::Parser(std::string input)
 Command Parser::nextCommand()
 {
     std::string line = this->isStdin ? nextLineStdin() : nextLineString();
-    
+
+    // Keep all input in uppercase so that string comparisons are easier from
+    // this point forward.
+    std::transform(line.begin(), line.end(), line.begin(), ::toupper);
+
     if (line.size() == 0)
         return Command(Command::END);
 

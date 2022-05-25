@@ -33,6 +33,12 @@ TEST(ParserTest, Report) {
 }
 
 
+TEST(ParserTest, ReportLowerCase) {
+    Parser parser("report");
+    EXPECT_EQ(parser.nextCommand().commandType, Command::REPORT);
+}
+
+
 TEST(ParserTest, Place) {
     Parser parser("PLACE 1,2,NORTH");
     Command nextCommand = parser.nextCommand();
