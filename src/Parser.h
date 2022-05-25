@@ -25,6 +25,7 @@ private:
 
     // Pure functions
     static std::vector<std::string> tokenize(std::string input, std::string delimiter);
+    static Position::Direction direction(std::string input);
 };
 
 #endif

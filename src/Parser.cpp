@@ -24,23 +24,30 @@ Command Parser::nextCommand()
     if (line.size() == 0)
         return Command(Command::END);
 
-    if (!line.compare("MOVE"))
+    if (line == "MOVE")
         return Command(Command::MOVE);
 
-    if (!line.compare("LEFT"))
+    if (line == "LEFT")
         return Command(Command::LEFT);
 
-    if (!line.compare("RIGHT"))
+    if (line == "RIGHT")
         return Command(Command::RIGHT);
     
-    if (!line.compare("REPORT"))
+    if (line == "REPORT")
         return Command(Command::REPORT);
 
-    // Assume it is a PLACE
+    // Assume it is a PLACE command
     std::vector<std::string> tokens = tokenize(line, " ");
     if (tokens.front() == "PLACE")
     {
         std::vector<std::string> params = tokenize(tokens[1], ",");
+        Command result(Command::PLACE);
+        auto dir = direction(params[2]);
+        Position position(std::stoi(params[0]),
+                            std::stoi(params[1]),
+                            dir);
+        result.position = position;
+        return result;
     }
 
     return Command(Command::ERROR);
@@ -98,4 +105,19 @@ std::vector<std::string> Parser::tokenize(std::string input, std::string delimit
     result.push_back(sub);
 
     return result;
+}
+
+
+Position::Direction Parser::direction(std::string input)
+{
+    if (input == "NORTH")
+        return Position::Direction::NORTH;
+    if (input == "SOUTH")
+        return Position::Direction::SOUTH;
+    if (input == "EAST")
+        return Position::Direction::EAST;
+    if (input == "WEST")
+        return Position::Direction::WEST;
+    // Default if can't parse
+    return Position::Direction::NORTH;
 }
