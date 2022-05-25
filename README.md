@@ -49,30 +49,33 @@ in the terminal then press enter.
 ### Examples
 
 #### Example 1
-PLACE 0,0,NORTH
-MOVE
-REPORT
+    PLACE 0,0,NORTH
+    MOVE
+    REPORT
 
 stdout:
-0,1,NORTH
+
+    0,1,NORTH
 
 #### Example 2
-PLACE 0,0,NORTH
-LEFT
-REPORT
+    PLACE 0,0,NORTH
+    LEFT
+    REPORT
 
 stdout:
-0,0,WEST
+
+    0,0,WEST
 
 #### Example 3
-PLACE 1,2,EAST
-MOVE
-MOVE
-LEFT
-MOVE
-REPORT
+    PLACE 1,2,EAST
+    MOVE
+    MOVE
+    LEFT
+    MOVE
+    REPORT
 
 stdout:
-3,3,NORTH
+
+    3,3,NORTH
 
 
