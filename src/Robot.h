@@ -1,4 +1,5 @@
 #ifndef ROBOT
+#define ROBOT
 
 #include <Command.h>
 

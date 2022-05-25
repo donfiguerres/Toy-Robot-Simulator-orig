@@ -1,4 +1,5 @@
 #ifndef PARSER
+#define PARSER
 
 #include <string>
 #include <vector>

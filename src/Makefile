@@ -305,6 +305,33 @@ Robot.cpp.s:
 	cd /home/donfiguerres/GitHub/Toy-Robot-Simulator && $(MAKE) -f src/CMakeFiles/robot_core.dir/build.make src/CMakeFiles/robot_core.dir/Robot.cpp.s
 .PHONY : Robot.cpp.s
 
+RobotDriver.o: RobotDriver.cpp.o
+
+.PHONY : RobotDriver.o
+
+# target to build an object file
+RobotDriver.cpp.o:
+	cd /home/donfiguerres/GitHub/Toy-Robot-Simulator && $(MAKE) -f src/CMakeFiles/robot_core.dir/build.make src/CMakeFiles/robot_core.dir/RobotDriver.cpp.o
+.PHONY : RobotDriver.cpp.o
+
+RobotDriver.i: RobotDriver.cpp.i
+
+.PHONY : RobotDriver.i
+
+# target to preprocess a source file
+RobotDriver.cpp.i:
+	cd /home/donfiguerres/GitHub/Toy-Robot-Simulator && $(MAKE) -f src/CMakeFiles/robot_core.dir/build.make src/CMakeFiles/robot_core.dir/RobotDriver.cpp.i
+.PHONY : RobotDriver.cpp.i
+
+RobotDriver.s: RobotDriver.cpp.s
+
+.PHONY : RobotDriver.s
+
+# target to generate assembly for a file
+RobotDriver.cpp.s:
+	cd /home/donfiguerres/GitHub/Toy-Robot-Simulator && $(MAKE) -f src/CMakeFiles/robot_core.dir/build.make src/CMakeFiles/robot_core.dir/RobotDriver.cpp.s
+.PHONY : RobotDriver.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -359,6 +386,9 @@ help:
 	@echo "... Robot.o"
 	@echo "... Robot.i"
 	@echo "... Robot.s"
+	@echo "... RobotDriver.o"
+	@echo "... RobotDriver.i"
+	@echo "... RobotDriver.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

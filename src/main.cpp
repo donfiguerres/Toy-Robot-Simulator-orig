@@ -1,7 +1,13 @@
 #include <iostream>
 
+#include <RobotDriver.h>
+
+
 int main(int argc, char** argv)
 {
-    std::cout << "Hello World!" << std::endl;
+    Robot robot;
+    Parser parser;
+    RobotDriver driver(robot, parser);
+    driver.run();
     return 0;
 }

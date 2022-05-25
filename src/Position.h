@@ -1,4 +1,5 @@
 #ifndef POSITION
+#define POSITION
 
 class Position {
 public:
