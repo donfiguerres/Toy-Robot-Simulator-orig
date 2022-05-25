@@ -24,16 +24,16 @@ Command Parser::nextCommand()
     if (line.size() == 0)
         return Command(Command::END);
 
-    if (line.compare("MOVE"))
+    if (!line.compare("MOVE"))
         return Command(Command::MOVE);
 
-    if (line.compare("LEFT"))
+    if (!line.compare("LEFT"))
         return Command(Command::LEFT);
 
-    if (line.compare("RIGHT"))
+    if (!line.compare("RIGHT"))
         return Command(Command::RIGHT);
     
-    if (line.compare("REPORT"))
+    if (!line.compare("REPORT"))
         return Command(Command::REPORT);
 
     // Assume it is a PLACE
@@ -61,14 +61,19 @@ std::string Parser::nextLineString()
     int end = input.find("\n", start);
 
     if (end = -1)
-        return std::string("");
-
-    std::string result = input.substr(start, end - start);
+    {
+        if (start < input.length())
+            end = input.length();
+        else
+            return std::string("");
+    }
 
     if (end + 1 < input.size())
         this->currentPosition = end + 1;
     else
         this->currentPosition = end;
+
+    std::string result = input.substr(start, end - start);
 
     return result;
 }
@@ -87,6 +92,10 @@ std::vector<std::string> Parser::tokenize(std::string input, std::string delimit
         start = end + 1;
         end = input.find(delimiter, start);
     }
+
+    // append last token
+    std::string sub = input.substr(start, end - start);
+    result.push_back(sub);
 
     return result;
 }

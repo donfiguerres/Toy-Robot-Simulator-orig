@@ -4,6 +4,8 @@ project(robot)
 
 set(CMAKE_CXX_STANDARD 11)
 
+set(CMAKE_BUILD_TYPE Debug)
+
 enable_testing()
 
 add_subdirectory(src)
