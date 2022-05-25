@@ -44,7 +44,6 @@ To run the application, execute the generated robot binary.
 The application will wait for commands via the standard input. Type your command
 in the terminal then press enter.
 
-> **_NOTE:_** The input is case sensitive so all commands should be in uppercase.
 
 ### Examples
 
