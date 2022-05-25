@@ -1,4 +1,6 @@
 #include <iostream>
+#include <functional>
+#include <cctype>
 #include <algorithm>
 
 #include <Parser.h>
@@ -25,6 +27,7 @@ Command Parser::nextCommand()
     // Keep all input in uppercase so that string comparisons are easier from
     // this point forward.
     std::transform(line.begin(), line.end(), line.begin(), ::toupper);
+    line = trim(line);
 
     if (line.size() == 0)
         return Command(Command::END);
@@ -42,7 +45,7 @@ Command Parser::nextCommand()
         return Command(Command::REPORT);
 
     // Assume it is a PLACE command
-    std::vector<std::string> tokens = tokenize(line, " ");
+    std::vector<std::string> tokens = tokenize(line, " ", 2);
     if (tokens.front() == "PLACE")
     {
         std::vector<std::string> params = tokenize(tokens[1], ",");
@@ -91,7 +94,9 @@ std::string Parser::nextLineString()
 }
 
 
-std::vector<std::string> Parser::tokenize(std::string input, std::string delimiter)
+std::vector<std::string> Parser::tokenize(std::string input,
+                                    std::string delimiter,
+                                    int limit)
 {
     std::vector<std::string> result;
     int start = 0;
@@ -99,7 +104,13 @@ std::vector<std::string> Parser::tokenize(std::string input, std::string delimit
 
     while (end != -1)
     {
+        if (limit != 0 && ((result.size() + 1) == limit))
+        {
+            end = input.size();
+            break;
+        }
         std::string sub = input.substr(start, end - start);
+        sub = trim(sub);
         result.push_back(sub);
         start = end + 1;
         end = input.find(delimiter, start);
@@ -107,6 +118,7 @@ std::vector<std::string> Parser::tokenize(std::string input, std::string delimit
 
     // append last token
     std::string sub = input.substr(start, end - start);
+    sub = trim(sub);
     result.push_back(sub);
 
     return result;
@@ -125,4 +137,25 @@ Position::Direction Parser::direction(std::string input)
         return Position::Direction::WEST;
     // Default if can't parse
     return Position::Direction::NORTH;
+}
+
+
+std::string Parser::trim(std::string input)
+{
+    return rtrim(ltrim(input));
+}
+
+static const std::string WHITESPACE = " \n\r\t\f\v";
+
+std::string Parser::ltrim(std::string input)
+{
+    size_t start = input.find_first_not_of(WHITESPACE);
+    return (start == std::string::npos) ? "" : input.substr(start);
+}
+
+
+std::string Parser::rtrim(std::string input)
+{
+    size_t end = input.find_last_not_of(WHITESPACE);
+    return (end == std::string::npos) ? "" : input.substr(0, end + 1);
 }
