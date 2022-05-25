@@ -18,6 +18,10 @@ void RobotDriver::run()
 
     while (cmd.commandType != Command::CommandType::END)
     {
+        // Ignore erroneous parsing output.
+        if (cmd.commandType == Command::CommandType::ERROR)
+            continue;
+
         robot.perform(cmd);
         cmd = parser.nextCommand();
     }
