@@ -12,6 +12,10 @@ void RobotDriver::run()
 {
     Command cmd = parser.nextCommand();
 
+    // The first command should be a PLACE command as per specs.
+    if (cmd.commandType != Command::CommandType::PLACE)
+        return;
+
     while (cmd.commandType != Command::CommandType::END)
     {
         robot.perform(cmd);
