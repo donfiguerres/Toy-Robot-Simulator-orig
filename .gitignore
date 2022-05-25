@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# CMake
+CMakeFiles
+CMakeCache.txt
+/_deps
+*.cmake
+
+# Project artifacts
+robot
