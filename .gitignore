@@ -35,6 +35,7 @@
 CMakeFiles
 CMakeCache.txt
 /_deps
+/build
 /Testing
 *.cmake
 
@@ -43,3 +44,6 @@ CMakeCache.txt
 
 # Project artifacts
 robot
+
+# VSCode
+.vscode
