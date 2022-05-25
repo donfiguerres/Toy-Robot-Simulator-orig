@@ -3,9 +3,9 @@
 #include <Parser.h>
 
 
-TEST(ParserTest, Place) {
-    Parser parser;
-    EXPECT_STRNE("hello", "world");
+TEST(ParserTest, EndOfInput) {
+    Parser parser("");
+    EXPECT_EQ(parser.nextCommand().commandType, Command::END);
 }
 
 int main(int argc, char** argv) {

@@ -19,7 +19,8 @@ private:
     std::string nextLineString();
 
     bool isStdin;
-    const char *currentPos;
+    std::string input;
+    int currentPosition;
 };
 
 #endif

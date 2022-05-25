@@ -11,7 +11,8 @@ Parser::Parser()
 
 Parser::Parser(std::string input)
 {
-    this->currentPos = input.c_str();
+    this->input = input;
+    this->isStdin = false;
 }
 
 
@@ -38,6 +39,6 @@ std::string Parser::nextLineStdin()
 
 std::string Parser::nextLineString()
 {
-    std::string line = "";
-    return line;
+    std::string string("");
+    return string;
 }
