@@ -17,4 +17,4 @@ public:
     Direction direction;
 };
 
-#endif POSITION
+#endif

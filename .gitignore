@@ -35,7 +35,11 @@
 CMakeFiles
 CMakeCache.txt
 /_deps
+/Testing
 *.cmake
+
+# test artifacts
+/test/*Test
 
 # Project artifacts
 robot
