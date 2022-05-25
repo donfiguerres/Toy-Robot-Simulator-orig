@@ -11,6 +11,7 @@ public:
         LEFT,
         RIGHT,
         REPORT,
+        ERROR, // Failed to parse
         END // end of input
     };
 

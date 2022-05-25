@@ -1,6 +1,7 @@
 #ifndef PARSER
 
 #include <string>
+#include <vector>
 
 #include <Command.h>
 
@@ -21,6 +22,9 @@ private:
     bool isStdin;
     std::string input;
     int currentPosition;
+
+    // Pure functions
+    static std::vector<std::string> tokenize(std::string input, std::string delimiter);
 };
 
 #endif
