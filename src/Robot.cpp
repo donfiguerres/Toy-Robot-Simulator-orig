@@ -26,7 +26,7 @@ void Robot::perform(Command cmd)
         rotateRight();
         break;
     case Command::REPORT:
-        // display position
+        display();
         break;
     }
 }

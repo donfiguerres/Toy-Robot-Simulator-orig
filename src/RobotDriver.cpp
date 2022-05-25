@@ -15,5 +15,6 @@ void RobotDriver::run()
     while (cmd.commandType != Command::CommandType::END)
     {
         robot.perform(cmd);
+        cmd = parser.nextCommand();
     }
 }
