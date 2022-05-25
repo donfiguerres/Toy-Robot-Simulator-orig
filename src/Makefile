@@ -197,6 +197,33 @@ robot/fast:
 	cd /home/donfiguerres/GitHub/Toy-Robot-Simulator && $(MAKE) -f src/CMakeFiles/robot.dir/build.make src/CMakeFiles/robot.dir/build
 .PHONY : robot/fast
 
+Command.o: Command.cpp.o
+
+.PHONY : Command.o
+
+# target to build an object file
+Command.cpp.o:
+	cd /home/donfiguerres/GitHub/Toy-Robot-Simulator && $(MAKE) -f src/CMakeFiles/robot_core.dir/build.make src/CMakeFiles/robot_core.dir/Command.cpp.o
+.PHONY : Command.cpp.o
+
+Command.i: Command.cpp.i
+
+.PHONY : Command.i
+
+# target to preprocess a source file
+Command.cpp.i:
+	cd /home/donfiguerres/GitHub/Toy-Robot-Simulator && $(MAKE) -f src/CMakeFiles/robot_core.dir/build.make src/CMakeFiles/robot_core.dir/Command.cpp.i
+.PHONY : Command.cpp.i
+
+Command.s: Command.cpp.s
+
+.PHONY : Command.s
+
+# target to generate assembly for a file
+Command.cpp.s:
+	cd /home/donfiguerres/GitHub/Toy-Robot-Simulator && $(MAKE) -f src/CMakeFiles/robot_core.dir/build.make src/CMakeFiles/robot_core.dir/Command.cpp.s
+.PHONY : Command.cpp.s
+
 Parser.o: Parser.cpp.o
 
 .PHONY : Parser.o
@@ -223,6 +250,33 @@ Parser.s: Parser.cpp.s
 Parser.cpp.s:
 	cd /home/donfiguerres/GitHub/Toy-Robot-Simulator && $(MAKE) -f src/CMakeFiles/robot_core.dir/build.make src/CMakeFiles/robot_core.dir/Parser.cpp.s
 .PHONY : Parser.cpp.s
+
+Position.o: Position.cpp.o
+
+.PHONY : Position.o
+
+# target to build an object file
+Position.cpp.o:
+	cd /home/donfiguerres/GitHub/Toy-Robot-Simulator && $(MAKE) -f src/CMakeFiles/robot_core.dir/build.make src/CMakeFiles/robot_core.dir/Position.cpp.o
+.PHONY : Position.cpp.o
+
+Position.i: Position.cpp.i
+
+.PHONY : Position.i
+
+# target to preprocess a source file
+Position.cpp.i:
+	cd /home/donfiguerres/GitHub/Toy-Robot-Simulator && $(MAKE) -f src/CMakeFiles/robot_core.dir/build.make src/CMakeFiles/robot_core.dir/Position.cpp.i
+.PHONY : Position.cpp.i
+
+Position.s: Position.cpp.s
+
+.PHONY : Position.s
+
+# target to generate assembly for a file
+Position.cpp.s:
+	cd /home/donfiguerres/GitHub/Toy-Robot-Simulator && $(MAKE) -f src/CMakeFiles/robot_core.dir/build.make src/CMakeFiles/robot_core.dir/Position.cpp.s
+.PHONY : Position.cpp.s
 
 Robot.o: Robot.cpp.o
 
@@ -293,9 +347,15 @@ help:
 	@echo "... robot_core"
 	@echo "... install/strip"
 	@echo "... robot"
+	@echo "... Command.o"
+	@echo "... Command.i"
+	@echo "... Command.s"
 	@echo "... Parser.o"
 	@echo "... Parser.i"
 	@echo "... Parser.s"
+	@echo "... Position.o"
+	@echo "... Position.i"
+	@echo "... Position.s"
 	@echo "... Robot.o"
 	@echo "... Robot.i"
 	@echo "... Robot.s"
