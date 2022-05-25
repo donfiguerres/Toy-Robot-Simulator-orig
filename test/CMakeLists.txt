@@ -16,6 +16,7 @@ add_executable(
 
 target_link_libraries(
   RobotTest
+  robot_core
   gtest_main
 )
 
